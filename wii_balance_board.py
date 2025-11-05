@@ -141,14 +141,14 @@ class WiiBalanceBoard:
         if self.control_socket:
             try:
                 self.control_socket.close()
-            except:
+            except (OSError, bluetooth.btcommon.BluetoothError):
                 pass
             self.control_socket = None
             
         if self.interrupt_socket:
             try:
                 self.interrupt_socket.close()
-            except:
+            except (OSError, bluetooth.btcommon.BluetoothError):
                 pass
             self.interrupt_socket = None
             
